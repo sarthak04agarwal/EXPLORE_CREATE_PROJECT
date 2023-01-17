@@ -31,7 +31,7 @@ def printBoard(board):
     print (" ")
 
 # The main function which has all the gameplay functionality.
-def game():
+def main():
 
     turn = 'X'
     
@@ -119,7 +119,7 @@ def game():
     if restart == "y" or restart == "Y":  
         for key in board_keys:
             theBoard[key] = " "
-        game()
+        main()
 
 if __name__ == "__main__":
-    game()
+    main()
