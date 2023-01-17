@@ -121,9 +121,13 @@ def get_one_valid_letter():
     letter = ""
     while is_letter_valid is False:
         letter = input("Enter guess letter: ")
-        letter = letter.strip().lower()
+        # Removes any spaces that are black to make sure that the letter that is to be guessed is only of length 1
+        letter = letter.strip()
+        # Turn all the character in the variable LETTER to lowercase
+        letter = letter.lower()
         if len(letter) <= 0 or len(letter) > 1:
             print("Letter must be of length 1")
+        # The .isalpha() method checks if the string provided is between the alphabet a-z
         elif letter.isalpha():
             if letter in correctly_guessed_letters or letter in incorrectly_guessed_letters:
                 print("You have already guessed the letter " + letter + ", please try again")
