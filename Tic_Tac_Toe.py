@@ -1,3 +1,5 @@
+import os
+
 # Shows the position of each value on the board
 print("Welcome to Tic-tac-toe!")
 print("The positions of the board are: ")
@@ -119,6 +121,7 @@ def main():
     if restart == "y" or restart == "Y":  
         for key in board_keys:
             theBoard[key] = " "
+        os.system("cls")
         main()
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 import random
-
+import os
 
 # Creates an empty list of the correctly guessed
 correctly_guessed_letters = []
@@ -180,7 +180,8 @@ def check_for_game_over():
             game_over = True
             print("You won!")
             restartGame()
-# Method that asks the user if they want to play again            
+# Method that asks the user if they want to play again
+# If the user says yes, the variable below will be emptied and the program will run again      
 def restartGame():
     global correctly_guessed_letters
     global incorrectly_guessed_letters
@@ -195,8 +196,13 @@ def restartGame():
         lives_left = 6
         game_over = False
         print(" ")
+        os.system("cls")
         main()
-            
+    elif restart == "n" or restart == "N":
+        print("\nHave a great day!")
+    else:
+        print("\nInvalid Option\nPlease pick one of the options stated above.\n")
+        restartGame()
     
 # The main method which calls every other method
 def main():
@@ -209,6 +215,7 @@ def main():
         randomly_chosen_word = input("\nPlease pick your word: ")
     elif status == '2':
         choose_random_word()
+        print("\nHint: It might have to do something with Computers or Computer Science.\n")
     else:
         print("Invalid option.")
         return 
