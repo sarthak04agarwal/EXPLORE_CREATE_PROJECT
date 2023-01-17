@@ -1,5 +1,6 @@
 import random
 import os
+import sys
 
 # Creates an empty list of the correctly guessed
 correctly_guessed_letters = []
@@ -210,15 +211,15 @@ def main():
     global randomly_chosen_word
 
     print("Welcome to Hangman!")
-    status = input("1. Do you want to write your own word\n2. Word is picked randomly\nPlease pick either number 1 or number 2: ")
+    status = input("1. Do you want to write your own word\n2. Word is picked randomly\nPlease pick one of the numbers stated above: ")
     if status == '1':
         randomly_chosen_word = input("\nPlease pick your word: ")
     elif status == '2':
         choose_random_word()
-        print("\nHint: It might have to do something with Computers or Computer Science.\n")
+        print("\nHint: It might have to do something with Computers or Computer Science.\n") 
     else:
-        print("Invalid option.")
-        return 
+        print("\nInvalid option.\n")
+        main()
         
     # While the game is not over this will keep print the Already letter that were guessed
     while game_over is False:
