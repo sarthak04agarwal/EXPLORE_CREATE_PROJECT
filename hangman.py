@@ -49,7 +49,7 @@ def draw_word():
 #Will draw the hangman drawing based on the number of lives left
 def draw_hangman():
     global lives_left
-
+    # If the users guesses 1 letter incorrectly a rope will be drawn
     if lives_left == 6:
         print("+------------+")
         print("|            |")
@@ -59,6 +59,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 2 letters incorrectly the head will be drawn
     elif lives_left == 5:
         print("+------------+")
         print("|            |")
@@ -68,6 +69,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 3 letters incorrectly the neck will be drawn    
     elif lives_left == 4:
         print("+------------+")
         print("|            |")
@@ -77,6 +79,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 4 letters incorrectly the left arm will be drawn 
     elif lives_left == 3:
         print("+------------+")
         print("|            |")
@@ -86,6 +89,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 5 letters incorrectly the right arm will be drawn 
     elif lives_left == 2:
         print("+------------+")
         print("|            |")
@@ -95,6 +99,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 5 letters incorrectly the left leg will be drawn 
     elif lives_left == 1:
         print("+------------+")
         print("|            |")
@@ -104,6 +109,8 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
+    # If the users guesses 6 letters incorrectly the right leg will be drawn 
+    # And the game would be over
     elif lives_left == 0:
         print("+------------+")
         print("|            |")
