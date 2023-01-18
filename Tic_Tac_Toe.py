@@ -51,21 +51,23 @@ class Game:
                     break
                 printBoard(theBoard)
                 # Records the number which the players want to place on the board
-                move = input("It's your turn, " + turn + ". Move to which place: ")
-                
-                # Checks to make sure that the input provided by the user is a numeric value
-                if move.isnumeric():  
-                    if (int(move) >= 1 and int(move) <= 9): # check if entered value is between 1 and 9
-                        if theBoard[move] == ' ':
-                            theBoard[move] = turn
-                            count += 1
-                        else:  # if place is already filled
-                            print("That place is already filled. Please pick a new spot.")
-                            continue 
-                    else:  # if entered number is less than 1 or greater than 9
-                        print("Please enter a number from 1-9.")
-                else:   # if entered number is not a numeric vaue
-                    print("Please enter a numeric number between 1-9.")
+                loop2 = True
+                while loop2:
+                    move = input("It's your turn, " + turn + ". Move to which place: ")
+                    # Checks to make sure that the input provided by the user is a numeric value
+                    if move.isnumeric():  
+                        if (int(move) >= 1 and int(move) <= 9): # check if entered value is between 1 and 9
+                            if theBoard[move] == ' ':
+                                theBoard[move] = turn
+                                count += 1
+                                loop2 = False
+                            else:  # if place is already filled
+                                print("That place is already filled. Please pick a new spot.\n")
+                                continue
+                        else:  # if entered number is less than 1 or greater than 9
+                            print("Please enter a number from 1-9.\n")
+                    else:   # if entered number is not a numeric vaue
+                        print("\nPlease enter a numeric number between 1-9.\n")
                 
                     
                 # Checks if any of the players X or O have won,for every move after 5 moves. 
@@ -79,7 +81,7 @@ class Game:
                     # Checks the middle line left to right
                     elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': 
                         printBoard(theBoard)
-                        print("\nGame Over.")                
+                        print("\nGame Over.\n")                
                         print(turn + " won.")
                         break
                     # Checks the bottom line left to right
