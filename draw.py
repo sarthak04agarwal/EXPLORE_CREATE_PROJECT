@@ -1,4 +1,5 @@
-
+# To make sure that this program runs please make sure that you have PyGame installed
+# To install PyGame run this command "pip install pygame" in your cmd
 import pygame
 from math import pi  
 
@@ -23,7 +24,6 @@ class Draw:
             # Turns the whole screen into the color black   
             screen.fill((0, 0, 0))    
             
-            # Draw on the screen a big circle
         
             # The big circle
             pygame.draw.circle(screen, (0, 255, 0), (250, 250), 200)
