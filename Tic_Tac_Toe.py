@@ -85,7 +85,7 @@ class Game:
                     # Checks the middle line left to right
                     elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': 
                         printBoard(theBoard)
-                        print("\nGame Over.\n")                
+                        print("\nGame Over.")                
                         print(turn + " won.")
                         break
                     # Checks the bottom line left to right
@@ -140,7 +140,7 @@ class Game:
                 os.system("cls")
                 main()
             else:
-                print("Have a great day!")
+                print("\nHave a great day!")
 
         if __name__ == "__main__":
             main()
