@@ -44,7 +44,6 @@ class Game:
             # Counts the amount of time both player have gone
             count = 0
             
-            
             # Runs while COUNT is not equal to 9
             loop = True
             while loop:
