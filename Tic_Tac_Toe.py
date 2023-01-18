@@ -59,11 +59,6 @@ class Game:
                         if theBoard[move] == ' ':
                             theBoard[move] = turn
                             count += 1
-                            # This changes the turn of the players
-                            if turn =='X':
-                                turn = 'O'
-                            else:
-                                turn = 'X' 
                         else:  # if place is already filled
                             print("That place is already filled. Please pick a new spot.")
                             continue 
@@ -124,6 +119,12 @@ class Game:
                         print(turn + " won.")
                         break 
 
+                # This changes the turn of the players
+                if turn =='X':
+                        turn = 'O'
+                else:
+                    turn = 'X' 
+
                 # If neither player wins and the board is full, the game is announced as tie
                 if count == 9:
                     print("\nGame Over.\n")                
@@ -131,12 +132,13 @@ class Game:
             
             
             # This is to check if the user wants to play again
-            restart = input("Do want to play Again?(y/n)")
+            restart = input("Do want to play Again? Press y or Y\nIf not press anything else: ")
             if restart == "y" or restart == "Y":  
                 for key in board_keys:
                     theBoard[key] = " "
                 # This command clears the terminal
                 os.system("cls")
+                print("\nWelcome Back!")
                 main()
             else:
                 print("\nHave a great day!")
