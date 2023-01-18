@@ -30,6 +30,7 @@ def choose_random_word():
         "Java"
     ]
 
+    # Randomly chooses word
     randomly_chosen_word = random.choice(acceptable_words)
     randomly_chosen_word = randomly_chosen_word.lower()
 
@@ -133,15 +134,15 @@ def get_one_valid_letter():
         # Turn all the character in the variable LETTER to lowercase
         letter = letter.lower()
         if len(letter) <= 0 or len(letter) > 1:
-            print("Letter must be of length 1")
+            print("\nLetter must be of length 1\n")
         # The .isalpha() method checks if the string provided is between the alphabet a-z
         elif letter.isalpha():
             if letter in correctly_guessed_letters or letter in incorrectly_guessed_letters:
-                print("You have already guessed the letter " + letter + ", please try again")
+                print("\nYou have already guessed the letter " + letter + ", please try again\n")
             else:
                 is_letter_valid = True
         else:
-            print("Letter must be (a-z)")
+            print("\nLetter must be (a-z)\n")
 
     return letter
 
@@ -178,7 +179,7 @@ def check_for_game_over():
                 break
         if guessed_all_letters:
             game_over = True
-            print("You won!")
+            print("You won! The word was " + randomly_chosen_word)
             restartGame()
 # Method that asks the user if they want to play again
 # If the user says yes, the variable below will be emptied and the program will run again      
@@ -218,7 +219,7 @@ def main():
                 randomly_chosen_word = choosen_word
                 loop = False
             else:
-                print("Invalid. Please pick a word from a-z only.")
+                print("\nInvalid. Please pick a word from a-z only.\n")
     elif status == '2':
         choose_random_word()
         print("\nHint: It might have to do something with Computers or Computer Science.\n") 

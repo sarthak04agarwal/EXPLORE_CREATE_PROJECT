@@ -39,21 +39,37 @@ def main():
     
     # Counts the amount of time both player have gone
     count = 0
-
-    # Run 9 times because there are only 9 places on the board
-    for i in range(9):
+    
+    
+    # Runs while COUNT is not equal to 9
+    loop = True
+    while loop:
+        if (count==9):
+            break
         printBoard(theBoard)
-        print("It's your turn, " + turn + ". Move to which place?")
         # Records the number which the players want to place on the board
-        move = input()        
-
-        if theBoard[move] == ' ':
-            theBoard[move] = turn
-            count += 1
-        else:
-            print("That place is already filled.\nPick a new spot?")
-            continue
-
+        move = input("It's your turn, " + turn + ". Move to which place: ")
+        
+        # Checks to make sure that the input provided by the user is a numeric value
+        if move.isnumeric():  
+            if (int(move) >= 1 and int(move) <= 9): # check if entered value is between 1 and 9
+                if theBoard[move] == ' ':
+                    theBoard[move] = turn
+                    count += 1
+                    # This changes the turn of the players
+                    if turn =='X':
+                        turn = 'O'
+                    else:
+                        turn = 'X' 
+                else:  # if place is already filled
+                    print("That place is already filled. Please pick a new spot.")
+                    continue 
+            else:  # if entered number is less than 1 or greater than 9
+                print("Please enter a number from 1-9.")
+        else:   # if entered number is not a numeric vaue
+            print("Please enter a numeric number between 1-9.")
+        
+            
         # Checks if any of the players X or O have won,for every move after 5 moves. 
         if count >= 5:
             # Checks the top line left to right
@@ -109,12 +125,7 @@ def main():
         if count == 9:
             print("\nGame Over.\n")                
             print("The game was a tie.")
-
-        # This changes the turn of the players
-        if turn =='X':
-            turn = 'O'
-        else:
-            turn = 'X'        
+       
     
     # This is to check if the user wants to play again
     restart = input("Do want to play Again?(y/n)")
@@ -124,6 +135,8 @@ def main():
         # This command clears the terminal
         os.system("cls")
         main()
+    else:
+        print("Have a great day!")
 
 if __name__ == "__main__":
     main()
