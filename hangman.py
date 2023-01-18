@@ -41,6 +41,7 @@ def draw_word():
     for i in range(0, len(randomly_chosen_word)):
         letter = randomly_chosen_word[i]
         if letter in correctly_guessed_letters:
+            # The reason why there is end=" " is because to make sure that each letter that is going to be printed of the whole word doesn't start in a new line
             print(letter, end=" ")
         else:
             print("_", end=" ")
@@ -58,7 +59,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 1 letters incorrectly the head will be drawn
     elif lives_left == 5:
         print("+------------+")
@@ -68,7 +69,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 2 letters incorrectly the body will be drawn    
     elif lives_left == 4:
         print("+------------+")
@@ -78,7 +79,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 3 letters incorrectly the left arm will be drawn 
     elif lives_left == 3:
         print("+------------+")
@@ -88,7 +89,7 @@ def draw_hangman():
         print("|           ")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 4 letters incorrectly the right arm will be drawn 
     elif lives_left == 2:
         print("+------------+")
@@ -98,7 +99,7 @@ def draw_hangman():
         print("|            ")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 5 letters incorrectly the left leg will be drawn 
     elif lives_left == 1:
         print("+------------+")
@@ -108,7 +109,7 @@ def draw_hangman():
         print("|           / ")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
     # If the users guesses 6 letters incorrectly the right leg will be drawn 
     # And the game would be over
     elif lives_left == 0:
@@ -119,7 +120,7 @@ def draw_hangman():
         print("|           / \\")
         print("|")
         print("|")
-        print("+-------+")
+        print("+------+")
 
 # Checks if the user types only 1 letter which has not been used before
 def get_one_valid_letter():

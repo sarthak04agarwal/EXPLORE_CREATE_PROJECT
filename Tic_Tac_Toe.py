@@ -105,12 +105,12 @@ def main():
                 print(turn + " won.")
                 break 
 
-        # If neither X nor O wins and the board is full, the game is announced as a 'tie'.
+        # If neither player wins and the board is full, the game is announced as tie
         if count == 9:
             print("\nGame Over.\n")                
             print("The game was a tie.")
 
-        # This changes the turn of the players.
+        # This changes the turn of the players
         if turn =='X':
             turn = 'O'
         else:
@@ -121,6 +121,7 @@ def main():
     if restart == "y" or restart == "Y":  
         for key in board_keys:
             theBoard[key] = " "
+        # This command clears the terminal
         os.system("cls")
         main()
 
