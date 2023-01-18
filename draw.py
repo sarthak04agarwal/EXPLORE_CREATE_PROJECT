@@ -22,15 +22,16 @@ while not loop:
     screen.fill((0, 0, 0))    
     
     # Draw on the screen a big circle
-    #pygame.draw.circle(screen, 0, 250, 100)
+   
+    # The big circle
     pygame.draw.circle(screen, (0, 255, 0), (250, 250), 200)
+    #The two eyes
     pygame.draw.circle(screen, (255, 0, 0), (350, 200), 40)
     pygame.draw.circle(screen, (255, 0, 0), (150, 200), 40)
-    #pygame.draw.triangle
-    #pygame.draw.polygon(screen, (0, 0, 0), [[100, 100], [250, 500], [200, 200]], 5)
-    #pygame.draw.ellipse(screen, (0, 0, 255), (250, 300), 20)
+    # The nose
     pygame.draw.ellipse(screen, (0, 0, 255), [225, 250, 50, 60])
 
+    # The mouth
     pygame.draw.circle(screen, "black", [250, 350], 50, 10, draw_bottom_left=True)
     pygame.draw.circle(screen, "black", [250, 350], 50, 10, draw_bottom_right=True)
 
