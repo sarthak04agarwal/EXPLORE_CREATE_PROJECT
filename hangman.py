@@ -1,6 +1,5 @@
 import random
 import os
-import sys
 
 # Creates an empty list of the correctly guessed
 correctly_guessed_letters = []
@@ -50,7 +49,7 @@ def draw_word():
 #Will draw the hangman drawing based on the number of lives left
 def draw_hangman():
     global lives_left
-    # If the users guesses 1 letter incorrectly a rope will be drawn
+    # This will be the starting position of the hangman picture
     if lives_left == 6:
         print("+------------+")
         print("|            |")
@@ -60,7 +59,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
-    # If the users guesses 2 letters incorrectly the head will be drawn
+    # If the users guesses 1 letters incorrectly the head will be drawn
     elif lives_left == 5:
         print("+------------+")
         print("|            |")
@@ -70,7 +69,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
-    # If the users guesses 3 letters incorrectly the neck will be drawn    
+    # If the users guesses 2 letters incorrectly the body will be drawn    
     elif lives_left == 4:
         print("+------------+")
         print("|            |")
@@ -80,7 +79,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
-    # If the users guesses 4 letters incorrectly the left arm will be drawn 
+    # If the users guesses 3 letters incorrectly the left arm will be drawn 
     elif lives_left == 3:
         print("+------------+")
         print("|            |")
@@ -90,7 +89,7 @@ def draw_hangman():
         print("|")
         print("|")
         print("+-------+")
-    # If the users guesses 5 letters incorrectly the right arm will be drawn 
+    # If the users guesses 4 letters incorrectly the right arm will be drawn 
     elif lives_left == 2:
         print("+------------+")
         print("|            |")
@@ -122,9 +121,8 @@ def draw_hangman():
         print("|")
         print("+-------+")
 
-# Checks if the user types only 1 letter that has not been used before
+# Checks if the user types only 1 letter which has not been used before
 def get_one_valid_letter():
-    
     is_letter_valid = False
     letter = ""
     while is_letter_valid is False:
@@ -196,7 +194,6 @@ def restartGame():
         randomly_chosen_word = ""
         lives_left = 6
         game_over = False
-        print(" ")
         os.system("cls")
         main()
     elif restart == "n" or restart == "N":
@@ -213,7 +210,14 @@ def main():
     print("Welcome to Hangman!")
     status = input("1. Do you want to write your own word\n2. Word is picked randomly\nPlease pick one of the numbers stated above: ")
     if status == '1':
-        randomly_chosen_word = input("\nPlease pick your word: ")
+        loop = True
+        while loop:
+            choosen_word = input("\nPlease pick your word(a-z): ")
+            if choosen_word.isalpha():
+                randomly_chosen_word = choosen_word
+                loop = False
+            else:
+                print("Invalid. Please pick a word from a-z only.")
     elif status == '2':
         choose_random_word()
         print("\nHint: It might have to do something with Computers or Computer Science.\n") 
